@@ -1,0 +1,34 @@
+{-Em Haskell, listas são muito comuns. Em vez de laços como for, usamos funções de ordem superior como map, filter, e fold. Aqui
+ estão alguns exemplos:
+map aplica uma função a cada elemento de uma lista,filter retorna uma nova lista com os elementos que atendem a uma condição
+foldl e foldr acumulam valores de uma lista com uma função-}
+
+dobrarLista :: [Int] -> [Int]
+dobrarLista xs = map (*2) xs
+
+main :: IO ()
+main = do
+  let lista = [1, 2, 3]
+  putStrLn ("A lista dobrada é: " ++ show (dobrarLista lista))
+
+
+
+-------------------------------------------------------
+numerosPositivos :: [Int] -> [Int]
+numerosPositivos xs = filter (>0) xs
+
+main :: IO ()
+main = do
+  let lista = [-5, 3, 0, 2, -1]
+  putStrLn ("Os números positivos são: " ++ show (numerosPositivos lista))
+
+-------------------------------------------------------------------
+somaLista :: [Int] -> Int
+somaLista xs = foldl (+) 0 xs
+
+main :: IO ()
+main = do
+  let lista = [1, 2, 3, 4]
+  putStrLn ("A soma dos elementos da lista é: " ++ show (somaLista lista))
+
+
